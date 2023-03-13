@@ -1,14 +1,53 @@
-<html ng-app="myFirstApp">
-    <head>
-        <meta charset="utf-8"> 
-        <script src="angular.min.js"></script>
-        <script src="app.js"></script>
-        <title>Hello World!</title>
-    </head>
-    <body ng-controller="MyFirstController">
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <script src="angular.min.js"></script>
+    <script src="app.js"></script>
+    <title>Hello World!</title>
+</head>
+
+<body>
+    <!-- <span ng-app="NameCalculator" ng-controller="NameCalculatorController">
         <h1>Have a nice day! {{name}} :)</h1>
-        <h1>{{sayHello()}}</h1>
-        <input type="text" ng-model="name">    
-        <div ></div>
-    </body>
+        <div>
+            Your Name:
+            <input type="text" ng-model="name" ng-keyup="displayNumeric()">
+        </div>
+       
+        <div>
+            Total numeric value of your name is: 
+            {{totalValue}}
+        </div>
+    </span> -->
+
+    <span ng-app="DIApp" ng-controller="DIController">
+        <div>
+            <h1>Hello! {{name}} :)</h1>
+            Your Name:
+            <input type="text" ng-model="name" ng-blur="upper()">
+            <h3>Built-in Filter: {{sayMessage()}}</h3>
+            <h3>Custom Filter: {{saySleepMessage()}}</h3>
+            <h3>Truth Filter: {{saySleepMessage() | truth: 'Coffee' : 'Water'}}</h3>
+            <h3>Real Truth Filter: {{saySleepMessage() | truth: 'Coffee' : 'Water'| uppercase}}</h3>
+            <br>
+            Coffee price: {{coffeePrice | currency : "THB " : 4 }}<br>
+            <button ng-click="showNumberOfWatches()">Log Number of Watches</button>
+            <button ng-click="countOnce()">Count Once</button>
+            <button ng-click="countUp()">Count Up</button>
+            <div>
+                Once Counter: {{onceCounter}} <br>
+                regular Counter: {{counter}}
+            </div>
+            <button ng-click="setAppName()">Set App Name</button>
+            App Name: {{ ::appName}}
+            <br>
+            <br>
+            <button ng-click="feedYaakov()">Feed Yaakov</button>
+            <br>
+            <img ng-src="images/yaakov_{{stateOfBeing}}.png">
+        </div>
+    </span>
+</body>
+
 </html>
